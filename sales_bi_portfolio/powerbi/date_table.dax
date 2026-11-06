@@ -1,0 +1,7 @@
+DimDate = ADDCOLUMNS(
+ CALENDAR(DATE(2024,1,1), DATE(2026,12,31)),
+ "Year", YEAR([Date]), "Month Number", MONTH([Date]),
+ "Month", FORMAT([Date], "MMM"), "YearMonth", FORMAT([Date], "YYYY-MM"),
+ "Quarter", "Q" & FORMAT([Date], "Q")
+)
+-- Mark DimDate as a date table and sort Month by Month Number.

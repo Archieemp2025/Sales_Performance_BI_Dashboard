@@ -1,0 +1,17 @@
+ProductID,ProductName,Category,ListPriceAUD
+P001,Laptop,Electronics,199
+P002,Monitor,Electronics,89
+P003,Headphones,Electronics,59
+P004,Keyboard,Electronics,299
+P005,Desk,Home & Living,59
+P006,Chair,Home & Living,129
+P007,Lamp,Home & Living,299
+P008,Storage,Home & Living,899
+P009,Notebook,Office Supplies,59
+P010,Printer Paper,Office Supplies,89
+P011,Ink Cartridge,Office Supplies,199
+P012,Stationery Kit,Office Supplies,59
+P013,Mouse,Accessories,59
+P014,Webcam,Accessories,24
+P015,USB Hub,Accessories,39
+P016,Laptop Stand,Accessories,899

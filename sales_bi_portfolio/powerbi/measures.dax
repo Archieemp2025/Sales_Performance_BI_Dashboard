@@ -1,0 +1,17 @@
+-- Model: FactOrderLine -> FactOrder by OrderID; FactOrder -> DimCustomer by CustomerID;
+-- FactOrderLine -> DimProduct by ProductID; DimDate[Date] -> FactOrder[OrderDate].
+-- Note: filter direction and relationships should be checked in Model view.
+Total Revenue = SUM(FactOrderLine[LineRevenueAUD])
+Transaction Volume = DISTINCTCOUNT(FactOrder[OrderID])
+Average Order Value = DIVIDE([Total Revenue], [Transaction Volume])
+Active Customers = DISTINCTCOUNT(FactOrder[CustomerID])
+Units Sold = SUM(FactOrderLine[Quantity])
+Revenue PY = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+Sales Growth YoY % = DIVIDE([Total Revenue] - [Revenue PY], [Revenue PY])
+Revenue PM = CALCULATE([Total Revenue], DATEADD(DimDate[Date], -1, MONTH))
+Sales Growth MoM % = DIVIDE([Total Revenue] - [Revenue PM], [Revenue PM])
+Revenue YTD = TOTALYTD([Total Revenue], DimDate[Date])
+Revenue per Customer = DIVIDE([Total Revenue], [Active Customers])
+Repeat Customers = COUNTROWS(FILTER(VALUES(FactOrder[CustomerID]), CALCULATE(DISTINCTCOUNT(FactOrder[OrderID])) > 1))
+Repeat Customer Rate % = DIVIDE([Repeat Customers], [Active Customers])
+Revenue Share % = DIVIDE([Total Revenue], CALCULATE([Total Revenue], ALLSELECTED(DimProduct[Category])))
