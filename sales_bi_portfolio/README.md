@@ -1,6 +1,6 @@
 # Sales Performance & Business Intelligence Analytics
 
-**Portfolio demonstration — 100% synthetic data; no actual client or employer information.**
+**Portfolio demonstration**
 
 ## Live dashboard
 Open `dashboard.html` in any modern browser (no server or internet required). Filter by year, region, category, channel and customer segment. All KPI cards and charts recalculate from `sales_fact.csv` embedded into the HTML for offline use.
